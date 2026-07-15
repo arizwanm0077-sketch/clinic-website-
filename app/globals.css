@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* Brand Colors */
+  --color-brand-ivory: #F9F8F6;
+  --color-brand-stone: #E5E4E2;
+  --color-brand-sand: #D4C3A3;
+  --color-brand-sage: #7B8F82;
+  --color-brand-sage-dark: #5A6D60;
+  --color-brand-green-deep: #1A2721;
+  --color-brand-text-main: #2C332F;
+  --color-brand-text-muted: #5C6661;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-brand-ivory);
+    --foreground: var(--color-brand-green-deep);
+    --selection-bg: var(--color-brand-sage);
+    --selection-text: #FFFFFF;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] font-sans antialiased selection:bg-[var(--selection-bg)] selection:text-[var(--selection-text)];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight text-[var(--foreground)];
+  }
+
+  /* Accessible focus indicators */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-sage ring-offset-2 ring-offset-[var(--background)];
+  }
+}
