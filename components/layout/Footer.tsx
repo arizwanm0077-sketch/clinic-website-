@@ -8,7 +8,7 @@ import { Instagram, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-brand-green-deep text-brand-ivory pt-16 md:pt-24 pb-24 md:pb-12 border-t border-brand-stone">
+    <footer className="bg-brand-green-deep text-brand-ivory pt-16 md:pt-24 pb-24 md:pb-12 border-t-2 border-brand-sand/40">
       <Container size="wide">
         <Stack gap="2xl">
           <Grid cols={4} gap="xl" className="border-b border-white/10 pb-16">
