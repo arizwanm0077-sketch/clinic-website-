@@ -36,12 +36,12 @@ import {
   concernsData, 
   doctorsData, 
   technologiesData, 
+  galleryData, 
   insightsData, 
   faqsData,
   demoMetadata
 } from "@/config/demoData";
 import { motion, AnimatePresence } from "motion/react";
-import { ClinicExperienceGallery } from "@/components/sections/ClinicExperienceGallery";
 
 export function HomepageSections() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
@@ -58,40 +58,40 @@ export function HomepageSections() {
   return (
     <>
       {/* SECTION 1: CREDENTIALS & TRUST BAR */}
-      <Section spacing="compact" className="bg-brand-green-deep text-white border-y border-brand-stone/30">
+      <Section spacing="compact" className="border-y border-brand-stone/30 bg-brand-stone/10">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 py-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 py-4">
             <div className="flex gap-4 items-start">
-              <div className="p-2 rounded-sm bg-brand-sage/20 text-brand-sand shrink-0">
+              <div className="p-2 rounded-sm bg-brand-sage/10 text-brand-sage-dark shrink-0">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-serif text-lg font-medium text-white block mb-1">Dermatologist Led</span>
-                <p className="text-xs text-brand-stone/70 leading-relaxed">
+                <span className="font-serif text-lg font-medium text-brand-green-deep block mb-1">Dermatologist Led</span>
+                <p className="text-xs text-brand-text-muted leading-relaxed">
                   Every care path is designed and supervised by qualified medical specialist doctors.
                 </p>
               </div>
             </div>
             
             <div className="flex gap-4 items-start">
-              <div className="p-2 rounded-sm bg-brand-sage/20 text-brand-sand shrink-0">
+              <div className="p-2 rounded-sm bg-brand-sage/10 text-brand-sage-dark shrink-0">
                 <Activity className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-serif text-lg font-medium text-white block mb-1">Evidence Based</span>
-                <p className="text-xs text-brand-stone/70 leading-relaxed">
+                <span className="font-serif text-lg font-medium text-brand-green-deep block mb-1">Evidence Based</span>
+                <p className="text-xs text-brand-text-muted leading-relaxed">
                   We use clinically proven technologies and strictly medical-grade protocols.
                 </p>
               </div>
             </div>
 
             <div className="flex gap-4 items-start">
-              <div className="p-2 rounded-sm bg-brand-sage/20 text-brand-sand shrink-0">
+              <div className="p-2 rounded-sm bg-brand-sage/10 text-brand-sage-dark shrink-0">
                 <User className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-serif text-lg font-medium text-white block mb-1">Completely Private</span>
-                <p className="text-xs text-brand-stone/70 leading-relaxed">
+                <span className="font-serif text-lg font-medium text-brand-green-deep block mb-1">Completely Private</span>
+                <p className="text-xs text-brand-text-muted leading-relaxed">
                   All consultations and procedures happen in private, secure medical suites.
                 </p>
               </div>
@@ -185,7 +185,7 @@ export function HomepageSections() {
       </Section>
 
       {/* SECTION 3: CONCERN-LED DISCOVERY */}
-      <Section spacing="default" surface="stone" className="relative overflow-hidden bg-brand-sage/15">
+      <Section spacing="default" surface="stone" className="relative overflow-hidden bg-brand-stone/30">
         <Container>
           <SectionHeader
             eyebrow="Targeted Solutions"
@@ -198,7 +198,7 @@ export function HomepageSections() {
 
           <Grid cols={3} gap="md">
             {concernsData.map((con) => (
-              <Card key={con.id} surface="ivory" className="p-8 border border-brand-stone/50">
+              <Card key={con.id} surface="white" className="p-8 border border-brand-stone/60">
                 <Stack gap="md" className="h-full justify-between">
                   <Stack gap="xs">
                     <span className="text-[10px] tracking-widest font-mono text-brand-sage-dark uppercase">
@@ -225,7 +225,7 @@ export function HomepageSections() {
       </Section>
 
       {/* SECTION 4: SIGNATURE TREATMENTS */}
-      <Section spacing="default" surface="stone" className="bg-brand-stone/30">
+      <Section spacing="default" surface="ivory">
         <Container>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <SectionHeader
@@ -239,7 +239,7 @@ export function HomepageSections() {
                 className={`px-4 py-2 text-xs font-mono tracking-wider uppercase rounded-sm border transition-all ${
                   activeCategory === "all" 
                     ? "bg-brand-green-deep text-white border-brand-green-deep" 
-                    : "bg-brand-ivory text-brand-text-muted border-brand-stone hover:border-brand-sand"
+                    : "bg-white text-brand-text-muted border-brand-stone hover:border-brand-sand"
                 }`}
               >
                 Featured
@@ -251,7 +251,7 @@ export function HomepageSections() {
                   className={`px-4 py-2 text-xs font-mono tracking-wider uppercase rounded-sm border transition-all ${
                     activeCategory === cat 
                       ? "bg-brand-green-deep text-white border-brand-green-deep" 
-                      : "bg-brand-ivory text-brand-text-muted border-brand-stone hover:border-brand-sand"
+                      : "bg-white text-brand-text-muted border-brand-stone hover:border-brand-sand"
                   }`}
                 >
                   {cat}
@@ -270,7 +270,7 @@ export function HomepageSections() {
             >
               <Grid cols={2} gap="lg">
                 {filteredTreatments.map((treat) => (
-                  <Card key={treat.id} surface="ivory" className="p-8 border border-brand-stone/40 hover:border-brand-sand transition-all duration-300">
+                  <Card key={treat.id} surface="white" className="p-8 border border-brand-stone/40 hover:border-brand-sand transition-all duration-300">
                     <Stack gap="md" className="h-full justify-between">
                       <Stack gap="xs">
                         <span className="text-[10px] tracking-widest font-mono text-brand-sage-dark uppercase">
@@ -311,7 +311,7 @@ export function HomepageSections() {
       </Section>
 
       {/* SECTION 5: MEET THE SPECIALISTS */}
-      <Section spacing="default" surface="ivory">
+      <Section spacing="default" surface="stone" className="bg-brand-stone/20">
         <Container>
           <SectionHeader
             eyebrow="Medical Leadership"
@@ -383,7 +383,7 @@ export function HomepageSections() {
       </Section>
 
       {/* SECTION 6: CONSULTATION JOURNEY */}
-      <Section spacing="default" surface="sage" className="bg-brand-sage/15">
+      <Section spacing="default" surface="ivory">
         <Container>
           <SectionHeader
             eyebrow="Clinical Framework"
@@ -436,7 +436,7 @@ export function HomepageSections() {
       </Section>
 
       {/* SECTION 7: TECHNOLOGY & SAFETY */}
-      <Section spacing="default" surface="stone" className="bg-brand-stone/25">
+      <Section spacing="default" surface="stone" className="bg-brand-stone/10">
         <Container>
           <SectionHeader
             eyebrow="Safety First"
@@ -524,24 +524,63 @@ export function HomepageSections() {
       </Section>
 
       {/* SECTION 9: CLINIC EXPERIENCE GALLERY */}
-      <Section spacing="spacious" surface="dark" className="relative overflow-hidden bg-brand-green-deep text-white">
+      <Section spacing="default" surface="stone" className="bg-brand-stone/20">
         <Container>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 md:mb-16">
-            <Stack gap="sm" className="max-w-2xl">
-              <Eyebrow className="text-brand-sand">Our Environment</Eyebrow>
-              <Heading level={2} size="xl" className="text-white">
-                The clinic experience
-              </Heading>
-              <BodyText size="md" className="text-brand-stone/80 max-w-xl">
-                Every detail of our space is curated to provide a quiet, tranquil environment that minimizes medical anxiety and supports a calm state. Select any image to view it larger.
-              </BodyText>
-            </Stack>
-            <span className="hidden lg:block text-[10px] font-mono uppercase tracking-widest text-brand-stone/50">
-              Demonstration content · subject to client approval
-            </span>
-          </div>
+          <SectionHeader
+            eyebrow="Our Environment"
+            title="The clinic experience"
+            description="Every detail of our space is curated to provide a quiet, tranquil environment that minimizes medical anxiety and supports your calm state."
+            layout="split"
+            className="mb-12 md:mb-16"
+          />
 
-          <ClinicExperienceGallery />
+          <Grid cols={4} gap="md">
+            {[
+              {
+                title: "Reception & Lounge",
+                desc: "A warm, ivory-textured lounge designed with natural timber elements and soft ambient lighting.",
+                image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200",
+                fallback: "Aurevia Reception Suite"
+              },
+              {
+                title: "Consultation Suite",
+                desc: "A spacious and completely sound-insulated environment focused on open clinical diagnostics.",
+                image: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=1200",
+                fallback: "Consultation Suite"
+              },
+              {
+                title: "Advanced Laser Suite",
+                desc: "Maintained under clinical parameters to deliver precision dermal treatments with safety.",
+                image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200",
+                fallback: "Clinical treatment room"
+              },
+              {
+                title: "Recovery & Care Suite",
+                desc: "A quiet post-procedure relaxation bay with customized care services and privacy.",
+                image: "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&q=80&w=1200",
+                fallback: "Aurevia Private Lounge"
+              }
+            ].map((gal, idx) => (
+              <Card key={idx} surface="white" className="group overflow-hidden">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-stone/10">
+                  <ResponsiveMedia
+                    src={gal.image}
+                    alt={gal.fallback}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 25vw"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <Heading level={4} size="xs" className="mb-1 text-brand-green-deep">
+                    {gal.title}
+                  </Heading>
+                  <p className="text-xs text-brand-text-muted leading-relaxed">
+                    {gal.desc}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </Grid>
         </Container>
       </Section>
 
@@ -598,7 +637,7 @@ export function HomepageSections() {
       </Section>
 
       {/* SECTION 11: FAQ */}
-      <Section spacing="default" surface="ivory" className="border-t border-brand-stone/40">
+      <Section spacing="default" surface="stone" className="bg-brand-stone/10 border-t border-brand-stone/40">
         <Container size="narrow">
           <SectionHeader
             eyebrow="Clinical FAQ"
@@ -615,7 +654,7 @@ export function HomepageSections() {
               return (
                 <div 
                   key={faq.id} 
-                  className="bg-white border border-brand-stone/40 rounded-sm overflow-hidden transition-all duration-300"
+                  className="bg-white border border-brand-stone/50 rounded-sm overflow-hidden transition-all duration-300"
                 >
                   <button
                     onClick={() => toggleFaq(faq.id)}
